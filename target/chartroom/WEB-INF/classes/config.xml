@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="mysql">
+        <!--1.2.配置id为mysql的数据库环境 -->
+        <environment id="mysql">
+            <!-- 使用JDBC的事务管理 -->
+            <transactionManager type="JDBC" />
+            <!--数据库连接池 -->
+            <dataSource type="POOLED">
+                <!-- 数据库驱动 -->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver" />
+                <!-- 连接数据库的url -->
+                <property name="url" value="jdbc:mysql://localhost:3307/chatroom?
+                useUnicode=true&amp;characterEncoding=UTF-8"/>
+                <!-- 连接数据库的用户名 -->
+                <property name="username" value="root" />
+                <!-- 连接数据库的密码 -->
+                <property name="password" value="root" />
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 注册AccountMapper.xml -->
+    <mappers>
+<!--        <mapper resource="AccountMapper.xml"></mapper>-->
+        <mapper resource="cn/itcast/chatroom/repository/UserRepository.xml"></mapper>
+<!--        <mapper resource="com/southwind/repository/StudentRepository.xml"></mapper>-->
+    </mappers>
+</configuration>
